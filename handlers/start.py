@@ -24,6 +24,9 @@ async def start_handler(message: types.Message):
             [
                 types.InlineKeyboardButton(text='Отзывы', callback_data='feedback'),
                 types.InlineKeyboardButton(text='Наши вакансии', callback_data='jobs')
+            ],
+            [
+                types.InlineKeyboardButton(text='Оставить отзыв', callback_data='feedback')
             ]
         ]
     )
@@ -49,7 +52,7 @@ async def contact_handler(callback: types.CallbackQuery):
 async def work_day_handler(callback: types.CallbackQuery):
     await callback.answer()
     await callback.message.answer('Круглосуточно 24/7')
-
+#
 @start_router.callback_query(F.data == 'feedback')
 async def feedback_handler(callback: types.CallbackQuery):
     await callback.answer()
@@ -59,3 +62,4 @@ async def feedback_handler(callback: types.CallbackQuery):
 async def jobs_handler(callback: types.CallbackQuery):
     await callback.answer()
     await callback.message.answer('Помощник повара \nКассир \nОфициант')
+
